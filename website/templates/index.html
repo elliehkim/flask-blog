@@ -1,6 +1,7 @@
 {% extends "base.html" %}
 {% block content %} 
 
+
 <div>
     <div class="header">
         <span class="header-title">Welcome {{user.username}}</span>
@@ -10,7 +11,7 @@
         {% for post in posts %}
         <div class="card">
             <div class="blog-image">
-                <img src={{post.imgURL}}>
+                <img src="data:image/png;base64,{{ post.get_image_data() }}" alt="{{ post.title }}">
             </div>
 
             <div class="blog-text">
@@ -35,13 +36,10 @@
     <div class="footer">
         <div class="footer-about">
             <span class="about-title">About Us</span>
-            <p>David and Ellie's group project for CS203</p>
-            <br>
-            <p>This is a blog project using Flask framework inspired by Tech with Tim's flask-blog and Lama Dev's React-blog application</p>
+            <p>This is Ellie's blog project using Flask framework inspired by Tech with Tim's flask-blog and Lama Dev's React-blog application</p>
             <div class="footer-icons">
-                <!-- <i class="topIcon fa-solid fa-envelope"></i> -->
-                <i class="topIcon fa-brands fa-github"></i>
-                <i class="topIcon fa-brands fa-linkedin"></i>
+                <a href='https://github.com/elliehkim'><i class="topIcon fa-brands fa-github"></i></a>
+                <a href='https://www.linkedin.com/in/ellie-hyein-kim-2b85b8213/'><i class="topIcon fa-brands fa-linkedin"></i></a>
             </div>
         </div>
         <div class="footer-email">

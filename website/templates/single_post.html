@@ -3,11 +3,11 @@
 
     <div class="singlePost">
         <div class="singlePostWrapper">
-            <img class="singlePostImg" src="{{post.imgURL}}" alt="d12" />
+            <img class="singlePostImg" src="data:image/png;base64,{{ post.get_image_data() }}" alt="{{ post.title }}">
             <h1 class="singlePostTitle">
                 {{post.title}}
                 <div class="singlePostEdit">
-                    <a class="button" href="/delete/{{post._id}}"><i class="singlePostIcon fa-regular fa-trash-can"></i></a>
+                    <a class="button" href="/delete/{{post._id}}" onclick="return confirm('Are you sure?')"><i class="singlePostIcon fa-regular fa-trash-can"></i></a>
                 </div>
             </h1>
         <div class="singlePostInfo">

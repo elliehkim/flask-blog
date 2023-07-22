@@ -1,19 +1,11 @@
 from flask import Flask
-import os
 from flask_login import LoginManager
-from dotenv import load_dotenv, find_dotenv
-from pymongo import MongoClient
-import certifi
 from .models import User
 from bson.objectid import ObjectId
+from .db import db
 
-load_dotenv(find_dotenv())
-password = os.environ.get("MONGODB_PWD")
-connection_string = f"mongodb+srv://admin:{password}@database.lrh5cyk.mongodb.net/?retryWrites=true&w=majority"
-client = MongoClient(connection_string, tlsCAFile=certifi.where())
-db = client.get_database('test')
 users = db.user
-posts = db.post
+posts = db.blog_collection
 enquiries = db.enquiry
 
 def create_app():

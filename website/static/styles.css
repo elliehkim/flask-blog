@@ -588,3 +588,7 @@
     border-radius:10px;
     cursor:pointer;
 }
+
+#imageInput{
+    padding:20px;
+}
