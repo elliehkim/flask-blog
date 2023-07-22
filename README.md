@@ -1,6 +1,6 @@
 # Flask-Blog
 
-This is a blog project using Flask framework and Mongo DB, incorporating features such as uploading blog posts, search function, login authentication, and email inquiry capabilities.
+This is a blog project using Flask framework and Mongo DB, incorporating features such as uploading blog posts and images, search function, login authentication, and email inquiry capabilities.
 
 Mongo DB password is "admin123" if required.
 
