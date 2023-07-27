@@ -9,15 +9,15 @@ posts = db.blog_collection
 enquiries = db.enquiry
 
 def create_app():
-    app = Flask(__name__)
-    app.secret_key = "helloworld"
+    application = Flask(__name__)
+    application.secret_key = "helloworld"
 
     from .auth import auth
     from .views import views
 
 
     login_manager = LoginManager()
-    login_manager.init_app(app)
+    login_manager.init_app(application)
     login_manager.login_view = 'auth.login'
 
     @login_manager.user_loader
@@ -27,7 +27,7 @@ def create_app():
             return None
         return User(user['username'], user['email'], user['password'], str(user['_id']))
 
-    app.register_blueprint(views, url_prefix="/")
-    app.register_blueprint(auth, url_prefix="/")
+    application.register_blueprint(views, url_prefix="/")
+    application.register_blueprint(auth, url_prefix="/")
 
-    return app
+    return application
